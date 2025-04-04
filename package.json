@@ -1,0 +1,23 @@
+{
+  "name": "winkjs-csv-text-classify",
+  "version": "1.0.0",
+  "description": "winkjs text classifier with csv training and input",
+  "dependencies": {
+    "commander": "^11.1.0",
+    "csvtojson": "^2.0.10",
+    "wink-naive-bayes-text-classifier": "^2.2.1",
+    "decimal.js": "^10.4.3"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "text",
+    "classifier",
+    "winkjs",
+    "csv"
+  ],
+  "author": "Daniel Lam",
+  "license": "ISC"
+}
