@@ -3,7 +3,7 @@
 - Set of CLI scripts that:
   - read csv files as a training set for text classification
   - compare unclassified input
-  - write results into summarized csv files
+  - write predicted categories against unclassified input into summarized results as csv files
 
 Text classification uses [winkjs Naive Bayes Classifier](https://www.npmjs.com/package/wink-naive-bayes-text-classifier).
 
