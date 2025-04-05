@@ -36,7 +36,7 @@ Run `npm install` (or if you have yarn `yarn install`) to install the following 
 - You can also review the odds or probabilities of each prediction by adding in the optional paramter -p at the end
 - See index.js for more details.
 
-##### Slack edition
+#### Slack edition
 - Only reads the parent comment thread. See slackInput.json for examples. Probabilities are also available.
 
 `node index.js text-classify-slack-json -t ./data/training.csv -i ./data/slackInput.json -o ./data/results.csv`
