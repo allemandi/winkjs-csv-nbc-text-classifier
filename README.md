@@ -1,4 +1,11 @@
 # winkjs-csv-text-classify
+## Purpose
+- Set of CLI scripts that:
+  - read csv files as a training set for text classification
+  - compare unclassified input
+  - write results into summarized csv files
+
+Text classification uses [winkjs Naive Bayes Classifier](https://www.npmjs.com/package/wink-naive-bayes-text-classifier).
 
 ## CSV Formats and Procedure
 Training and input CSV files must have `category` and `comment` headers.
@@ -6,7 +13,6 @@ Training and input CSV files must have `category` and `comment` headers.
 - The input csv/json values under the `comment` header will first be obfuscated.
 - Afterwards, Winkjs will read the obfuscated comments and predict the categories.
 - Then a results.csv will be generated in the data folder, where Winkjs has added a list of `category` against the input file's original `comment` list.
-
 
 ## Dependencies
 Requires Node.js.
@@ -18,10 +24,8 @@ Run `npm install` (or if you have yarn `yarn install`) to install the following 
 - decimal.js
 
 ## How to run
-
 ### Text Classify
-
-### CSV edition
+#### CSV edition
 - Ensure you have a training file (e.g. training.csv) that has `comment` and `category` headers and an input file (input.csv) containing comments to be predicted under `comment` header.
 - In the main directory where index.js sits, run:
 
@@ -32,7 +36,7 @@ Run `npm install` (or if you have yarn `yarn install`) to install the following 
 - You can also review the odds or probabilities of each prediction by adding in the optional paramter -p at the end
 - See index.js for more details.
 
-### Slack edition
+##### Slack edition
 - Only reads the parent comment thread. See slackInput.json for examples. Probabilities are also available.
 
 `node index.js text-classify-slack-json -t ./data/training.csv -i ./data/slackInput.json -o ./data/results.csv`
@@ -50,5 +54,18 @@ Run `npm install` (or if you have yarn `yarn install`) to install the following 
 
 - update paths where needed
 
-## Results
+### Results
 results.csv will be in the data folder.
+
+## Text Classification Configuration
+- Consider modifying following values:
+  - `nbc.defineConfig`, particularly `smoothingFactor`
+  - `trainingPercentage`
+
+## Potential Contributions / Improvements
+Ideas that can further improve upon this concept include:
+- Better algorithm
+  - If retaining the original Naive Bayes Classifier methods, then obvious improvements needed towards tokenization, text cleaning/processing
+  - Word embedding classification methods are excellent, especially for corporate/enterprise projects, but I haven't managed to find user-friendly, opensource packages at this time.
+- Better training data management for input / upload
+- Better UI
