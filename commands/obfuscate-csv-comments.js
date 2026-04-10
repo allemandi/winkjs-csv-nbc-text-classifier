@@ -26,9 +26,12 @@ const obfucateCsvComments = async (inputcsv, outputcsv) => {
   };
 
   // write csv content to a results file
-  writeFile(outputcsv, outputArr, 'utf8')
+  return writeFile(outputcsv, outputArr, 'utf8')
     .then(() => console.log("success: see your results in your output folder"))
-    .catch((error) => console.log("error: could not write results file"))
+    .catch((error) => {
+      console.log("error: could not write results file");
+      throw error;
+    });
 };
 
 module.exports = obfucateCsvComments;
